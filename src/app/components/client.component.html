@@ -1,0 +1,22 @@
+ <h2>Angular Application {{version}} </h2>
+ <h1>{{productName}}</h1>
+ <h2>{{name}} </h2>
+ <p><strong>Email:</strong>{{email}}</p><p><strong>address:</strong>{{address.street}}, {{address.city}}, {{address.location}} 
+ </p><div style="padding-bottom:10px;"><button (click)="toggleproducts()">{{showproducts ? "Hide Offer availablity for products" : "show Offer availablity for products"}} </button> <br/></div>
+ <div style="padding-bottom:15px" *ngIf="showproducts">
+ <h3>Add To Cart</h3><ul><li *ngFor="let hobby of products;let i=index">{{hobby}} 
+ <button (click)="deleteHobby(i);">X</button></li></ul><br/>
+ <form (submit) = "addHobby(hobby.value)">
+ <label><strong> Add Products : </strong></label><input type="text" #hobby /><br/>
+</form> </div>  <form> <div style="padding-bottom:10px;">
+ <label><strong> Name:</strong></label> <input type="text" name="name" [(ngModel)]="name" /></div>
+ <div style="padding-bottom:10px;"><label><strong>Email:</strong></label> 
+ <input type="text" name="email" [(ngModel)]="email" /></div> <div style="padding-bottom:10px;">
+ <label><strong>street</strong>: </label> <input type="text" name="address.street" [(ngModel)]="address.street"/>
+ </div> 
+ <div style="padding-bottom:10px;"><label><strong>city:</strong></label>
+ <input type="text" name="address.city" [(ngModel)]="address.city"/> </div>
+ <div style="padding-bottom:10px;"><label><strong>state:</strong></label> 
+ <input type="text" name="address.state" [(ngModel)]="address.state"/>
+ </div></form> <h3> Api calls to fetch data </h3>
+ <div *ngFor="let post of posts"><h3>{{post.title}}</h3><p>{{post.body}}</p></div>
